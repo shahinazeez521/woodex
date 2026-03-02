@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contact Us - Woodex Timber Merchants</title>
+    <meta name="description"
+        content="Get in touch with Woodex Timber Merchants in Tanur, Kerala. Visit our showroom, call us, or send an inquiry." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7C5A34",
+                        secondary: "#D4AC6E",
+                        "primary-dark": "#4A2C1D",
+                        "accent-light": "#EAE5DE",
+                        "background-light": "#F9F8F6",
+                        "background-dark": "#1F1611",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#2C2018",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { DEFAULT: "0.5rem" },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-body transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav id="main-nav"
+        class="fixed w-full z-50 bg-surface-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a class="flex items-center gap-2" href="index.html">
+                        <span class="material-icons text-primary text-4xl">forest</span>
+                        <span
+                            class="font-display text-2xl font-bold tracking-tight text-primary-dark dark:text-secondary">WOODEX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="index.html">Home</a>
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="catalog.html">Timber Store</a>
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="order.html">Bulk Inquiry</a>
+                    <a class="nav-link active text-primary dark:text-secondary font-medium transition"
+                        href="contact.html">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button
+                        class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <span class="material-icons">search</span>
+                    </button>
+                    <a href="catalog.html"
+                        class="hidden sm:inline-flex bg-primary hover:bg-primary-dark text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors items-center gap-1">
+                        <span class="material-icons text-sm">storefront</span> Store
+                    </a>
+                    <button
+                        class="p-2 rounded-full text-gray-500 dark:text-secondary hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        id="theme-toggle" onclick="toggleDarkMode()">
+                        <span class="material-icons">dark_mode</span>
+                    </button>
+                    <button
+                        class="md:hidden p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        onclick="toggleMobileMenu()">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="index.html">Home</a>
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="catalog.html">Timber Store</a>
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="order.html">Bulk Inquiry</a>
+                    <a class="text-primary dark:text-secondary font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative h-[40vh] flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full bg-gradient-to-b from-primary-dark via-primary to-secondary/40"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-3xl mx-auto animate-fadeInUp">
+            <h1 class="font-display text-5xl md:text-6xl font-bold text-white mb-4 italic">Get in Touch</h1>
+            <p class="text-lg text-gray-200 font-light max-w-xl mx-auto">
+                Crafting excellence in timber. Whether you need premium mahogany or sustainable balsa, our experts in
+                Tanur are here to help you build your vision.
+            </p>
+        </div>
+    </header>
+
+    <!-- Contact Information & Form -->
+    <section class="py-16 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information Card -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100 dark:border-gray-700 contact-card">
+                    <h2 class="font-display text-3xl font-bold text-primary dark:text-secondary mb-8">Contact
+                        Information</h2>
+
+                    <!-- Visit -->
+                    <div class="flex items-start mb-8">
+                        <div
+                            class="flex-shrink-0 h-12 w-12 rounded-full bg-primary/10 dark:bg-secondary/10 flex items-center justify-center">
+                            <span class="material-icons text-primary dark:text-secondary">location_on</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Visit Our Showroom</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                                Woodex Timber Merchants<br />
+                                Main Road, Tanur<br />
+                                Malappuram, Kerala 676302<br />
+                                India
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Call -->
+                    <div class="flex items-start mb-8">
+                        <div
+                            class="flex-shrink-0 h-12 w-12 rounded-full bg-primary/10 dark:bg-secondary/10 flex items-center justify-center">
+                            <span class="material-icons text-primary dark:text-secondary">phone</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Call Us Directly</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-1">Mon-Sat from 9am to 6pm.</p>
+                            <a href="tel:+910876143210"
+                                class="text-primary dark:text-secondary hover:underline block text-sm font-medium">+91
+                                08761 43210</a>
+                            <a href="tel:+914831234567"
+                                class="text-primary dark:text-secondary hover:underline block text-sm font-medium">+91
+                                483 123 4567</a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex items-start mb-8">
+                        <div
+                            class="flex-shrink-0 h-12 w-12 rounded-full bg-primary/10 dark:bg-secondary/10 flex items-center justify-center">
+                            <span class="material-icons text-primary dark:text-secondary">email</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Email Support</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-1">Send us your requirements or timber
+                                queries.</p>
+                            <a href="mailto:info@woodex.in"
+                                class="text-primary dark:text-secondary hover:underline text-sm font-medium">info@woodex.in</a>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="border-t border-gray-200 dark:border-gray-600 my-6"></div>
+
+                    <!-- Business Hours -->
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Business Hours</h3>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-gray-500 dark:text-gray-400">Monday - Friday</span>
+                                <p class="font-medium text-gray-900 dark:text-white">09:00 AM - 07:00 PM</p>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 dark:text-gray-400">Saturday</span>
+                                <p class="font-medium text-gray-900 dark:text-white">09:00 AM - 05:00 PM</p>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 dark:text-gray-400">Sunday</span>
+                                <p class="font-bold text-red-500">Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-lg p-8 md:p-10 border border-gray-100 dark:border-gray-700 contact-card">
+                    <h2 class="font-display text-3xl font-bold text-primary dark:text-secondary mb-4">Send us a Message
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-8">Interested in a custom order or have
+                        questions about our stock? Fill out the form below.</p>
+
+                    <form class="space-y-5" onsubmit="handleFormSubmit(event, 'contact')">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+                                    for="contact-first">First name</label>
+                                <input
+                                    class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white text-sm"
+                                    id="contact-first" type="text" required />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+                                    for="contact-last">Last name</label>
+                                <input
+                                    class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white text-sm"
+                                    id="contact-last" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+                                for="contact-email">Email address</label>
+                            <input
+                                class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white text-sm"
+                                id="contact-email" type="email" required />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+                                for="contact-phone">Phone number</label>
+                            <input
+                                class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white text-sm"
+                                id="contact-phone" type="tel" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5"
+                                for="contact-message">How can we help you?</label>
+                            <textarea
+                                class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white text-sm"
+                                id="contact-message" placeholder="I'm interested in Mahogany timber..." rows="4"
+                                required></textarea>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input class="focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded"
+                                    id="contact-newsletter" type="checkbox" />
+                            </div>
+                            <div class="ml-3">
+                                <label class="text-sm text-gray-600 dark:text-gray-400" for="contact-newsletter">
+                                    Join our newsletter
+                                </label>
+                                <p class="text-xs text-gray-400 dark:text-gray-500">Get updates on new timber stock and
+                                    offers.</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 px-4 rounded-lg transition-colors shadow-md uppercase tracking-wider text-sm"
+                            type="submit">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-4 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="map-container shadow-lg">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31265.547826735394!2d75.83!3d10.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7b1a0e3c3c3c3%3A0x3c3c3c3c3c3c3c3c!2sTanur%2C%20Kerala!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    title="Woodex Location Map"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Woodex -->
+    <section class="py-20 bg-surface-light dark:bg-surface-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-dark dark:text-white mb-3">Why
+                    Choose Woodex?</h2>
+                <p class="text-gray-600 dark:text-gray-400">Premium quality and sustainable sourcing for over 20 years.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="text-center feature-card p-8 rounded-xl bg-background-light dark:bg-background-dark border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-secondary/10 mb-6 feature-icon">
+                        <span class="material-icons text-3xl text-primary dark:text-secondary">diamond</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-3">Premium Selection</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">We stock the finest Mahogany,
+                        Teak, and exotic hardwoods available in Kerala.</p>
+                </div>
+                <div
+                    class="text-center feature-card p-8 rounded-xl bg-background-light dark:bg-background-dark border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-secondary/10 mb-6 feature-icon">
+                        <span class="material-icons text-3xl text-primary dark:text-secondary">local_shipping</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-3">Fast Delivery</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Reliable delivery across
+                        Malappuram and surrounding districts directly to your site.</p>
+                </div>
+                <div
+                    class="text-center feature-card p-8 rounded-xl bg-background-light dark:bg-background-dark border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 dark:bg-secondary/10 mb-6 feature-icon">
+                        <span class="material-icons text-3xl text-primary dark:text-secondary">support_agent</span>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-3">Expert Consultation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Our team offers professional
+                        advice on the best timber for your specific project needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-icons text-secondary text-3xl">forest</span>
+                        <span class="font-display font-bold text-2xl tracking-wider">WOODEX</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Woodex is a premier timber merchant based in Tanur, Kerala. We specialize in high-quality wood
+                        products for construction and furniture making.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="text-gray-400 hover:text-secondary transition" href="#"><span
+                                class="material-icons">public</span></a>
+                        <a class="text-gray-400 hover:text-secondary transition" href="#"><span
+                                class="material-icons">share</span></a>
+                        <a class="text-gray-400 hover:text-secondary transition" href="#"><span
+                                class="material-icons">rss_feed</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-secondary font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a class="hover:text-white transition" href="index.html">Home</a></li>
+                        <li><a class="hover:text-white transition" href="catalog.html">Our Products</a></li>
+                        <li><a class="hover:text-white transition" href="order.html">Bulk Inquiry</a></li>
+                        <li><a class="hover:text-white transition" href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-secondary font-bold mb-4 uppercase text-sm tracking-wider">Timber Types</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a class="hover:text-white transition" href="catalog.html">Mahogany</a></li>
+                        <li><a class="hover:text-white transition" href="catalog.html">Teak Wood</a></li>
+                        <li><a class="hover:text-white transition" href="catalog.html">Rosewood</a></li>
+                        <li><a class="hover:text-white transition" href="catalog.html">Jack Wood</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-secondary font-bold mb-4 uppercase text-sm tracking-wider">Newsletter</h3>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe for latest stock updates.</p>
+                    <form class="flex flex-col gap-3"
+                        onsubmit="event.preventDefault(); showToast('Subscribed successfully!');">
+                        <input
+                            class="bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-400 focus:ring-1 focus:ring-secondary focus:border-secondary"
+                            placeholder="Your email" type="email" />
+                        <button
+                            class="bg-secondary hover:bg-white text-primary-dark font-bold py-2.5 px-4 rounded-lg transition-colors text-sm"
+                            type="submit">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>© 2023 Woodex Timber Merchants. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a class="hover:text-white transition" href="#">Privacy Policy</a>
+                    <a class="hover:text-white transition" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+        <span class="material-icons">arrow_upward</span>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

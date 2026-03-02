@@ -1,0 +1,279 @@
+/* ===== Woodex Global Styles ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F9F8F6;
+}
+::-webkit-scrollbar-thumb {
+    background: #7C5A34;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #D4AC6E;
+}
+.dark ::-webkit-scrollbar-track {
+    background: #1F1611;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(212,172,110,0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(212,172,110,0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out both;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.7s ease-out both;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.7s ease-out both;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.5s ease-out both;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ===== Active nav link indicator ===== */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #D4AC6E;
+    border-radius: 1px;
+}
+
+/* ===== Form Success Toast ===== */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #4A2C1D;
+    color: white;
+    padding: 16px 28px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+}
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+.toast .material-icons {
+    color: #D4AC6E;
+}
+
+/* ===== Scroll-triggered animations ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease-out;
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Map container ===== */
+.map-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+    filter: grayscale(10%) contrast(1.05);
+}
+
+/* ===== Search overlay ===== */
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.search-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.search-overlay .search-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+.search-overlay.active .search-box {
+    transform: translateY(0);
+}
+.dark .search-overlay .search-box {
+    background: #2C2018;
+}
+
+/* ===== Back to top button ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #7C5A34;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 50;
+}
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background: #D4AC6E;
+    transform: translateY(-3px);
+}
+
+/* ===== Pagination active ===== */
+.pagination-btn.active {
+    background: #7C5A34;
+    color: white;
+    border-color: #7C5A34;
+}
+
+/* ===== Contact info card hover ===== */
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+/* ===== Smooth image loading ===== */
+img {
+    transition: opacity 0.3s ease;
+}
+img[src=""] {
+    opacity: 0;
+}
+
+/* ===== Why Choose Us cards ===== */
+.feature-card {
+    transition: all 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-8px);
+}
+.feature-card:hover .feature-icon {
+    animation: pulse-glow 1.5s infinite;
+}

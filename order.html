@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bulk Order & Inquiry - Woodex Premium Timber</title>
+    <meta name="description"
+        content="Get custom quotes for bulk timber orders. Specialized pricing for commercial contractors and large projects." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7C5A34",
+                        secondary: "#D4AC6E",
+                        "primary-dark": "#4A2C1D",
+                        "accent-light": "#EAE5DE",
+                        "accent-brown": "#A67B5B",
+                        "background-light": "#F9F8F6",
+                        "background-dark": "#1F1611",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#2C2018",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { DEFAULT: "0.5rem" },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-body transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav id="main-nav"
+        class="fixed w-full z-50 top-0 transition-all duration-300 bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <span class="material-icons text-primary text-4xl">forest</span>
+                        <span
+                            class="font-display font-bold text-2xl text-primary-dark dark:text-secondary tracking-wide">WOODEX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="index.html">Home</a>
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="catalog.html">Timber Store</a>
+                    <a class="nav-link active text-primary dark:text-secondary font-bold transition"
+                        href="order.html">Bulk Inquiry</a>
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="contact.html">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button
+                        class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        id="search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+                    <button
+                        class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition relative"
+                        id="cart-btn">
+                        <span class="material-icons">shopping_cart</span>
+                        <span
+                            class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center cart-count">2</span>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        id="theme-toggle" onclick="toggleDarkMode()">
+                        <span class="material-icons text-gray-500 dark:text-gray-400">dark_mode</span>
+                    </button>
+                    <button
+                        class="md:hidden p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        onclick="toggleMobileMenu()">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="index.html">Home</a>
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="catalog.html">Timber Store</a>
+                    <a class="text-primary dark:text-secondary font-bold px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="order.html">Bulk Inquiry</a>
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="relative h-[60vh] flex items-center justify-center pt-20">
+        <div class="absolute inset-0 z-0">
+            <img alt="Stacked timber logs texture" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMunSvjZU6yTg3Ke7lH6tEBn3NlokpN3qWlXEPO6f0uz8VVqcZReRcVsWF1d6WE3xP7X2e_L6k-ci9SIrnsF-E3cVwLSLwAEv0Q76lr0c6__0W0qW4SnXcdG5za6TXI-0C-id2W-dv61LhS3JrJ7dS5J6krIGmzLYkDvHtn5sPvhxORFGAExUZxbmfZgNl1lppTUD-8vfjDAJSiO26s7pXgJWHqlcSpE6Xfh0ueaFAftJRvMbcf3PpNoBwawpkiTahp5l-2-WEi1Yv" />
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent dark:from-black/90 dark:to-black/40">
+            </div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full animate-fadeInUp">
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Premium Timber <br />
+                <span class="text-secondary">Delivered Direct.</span>
+            </h1>
+            <p class="text-lg text-gray-200 max-w-2xl mb-8 font-light">
+                Your fast, simple, and reliable way to buy timber and get it to your front door. Specialized in
+                Mahogany, Teak, and Oak for discerning builders.
+            </p>
+            <div class="flex space-x-4">
+                <a href="catalog.html"
+                    class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded shadow-lg transition-transform transform hover:-translate-y-1 font-medium tracking-wide">
+                    View Catalogue
+                </a>
+                <a href="contact.html"
+                    class="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded shadow-lg transition-transform transform hover:-translate-y-1 font-medium tracking-wide">
+                    Contact Sales
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop by Category -->
+    <div class="py-16 bg-white dark:bg-surface-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Shop by Category
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="catalog.html" class="group cursor-pointer block">
+                    <div class="relative overflow-hidden rounded-lg aspect-square mb-4">
+                        <img alt="Construction Timber"
+                            class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxwGzR5PyqskJWM-7aw6dJpfQwss9qS8brVpj9UpwKPyO9ghvljISXzXJsX-SV_q8BX-Zns69FVNvmt4KHiw4pDEgbkzwfE81VatnPXCAYbFyV9YTd2p7WgBh7U7vGFM3Qb3sCeoJd79xHh3-mI6PaBJKQbFvOz6AHRNJvt1dWtGPqwCQDlSPdYJ0SdATMc3vrqAKgdXUA2F4d142mUPaBzXKppW-Mgdi-8ygIeomDI63RzpGSJvUhMw6M7SSS-8_vQ1Io4hZvuCPW" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <h3 class="text-center font-semibold text-lg group-hover:text-primary transition-colors">Structural
+                        Timber</h3>
+                </a>
+                <a href="catalog.html" class="group cursor-pointer block">
+                    <div class="relative overflow-hidden rounded-lg aspect-square mb-4">
+                        <img alt="Sheet Materials"
+                            class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDav0FYtLUl2vzL-PHvnPxMxF70pFpt6XwpP6swxXuJBL6Vm_-ed2y16DCFoMpSw5dZBmAqe2q7YKDru55qgijNz1SrKTCmBHv30xQZwUY0JW0pcEBH_YDvMIPBAdHbw_VmoUGhIxp7UxaSXyx_m4iNat5rw25cwf_Jcf1ijj4fFnjUCSmVg2RzWXZdw5TtxX_hNiHG5iu656NvG84qQGtkjtJgg9W392-rVSAseVP26Ic_IcU6aTcAEILj5FOifF7D42RsBv1P3YZC" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <h3 class="text-center font-semibold text-lg group-hover:text-primary transition-colors">Sheet
+                        Materials</h3>
+                </a>
+                <a href="catalog.html" class="group cursor-pointer block">
+                    <div class="relative overflow-hidden rounded-lg aspect-square mb-4">
+                        <img alt="Oak Planks"
+                            class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSPE-uffMpYwOgUuChTTe0MzVkMA_iKkWC6tX1UDv16wPUYRWaXbo4dyif8wBve9pijQWu9_RbnJ3g9dt4_eD6K8aU5IR8auw1NVTvVWeLWdujO6lbRJGFVIC324M47GqZkg7PPkhh8wRCAfTdNlbEMGl-KcXOVGeWcwfEHdUUxKFr3Qxi_8ABVcF7sBqybWptJHDJsW2iFSVhJo0lNMnZn5w-jiPz8r-_J3MNzpD-skfJe5ft2kz-PurxWoHfY3GbLwnj9lAkbRUK" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <h3 class="text-center font-semibold text-lg group-hover:text-primary transition-colors">Hardwoods
+                    </h3>
+                </a>
+                <a href="catalog.html" class="group cursor-pointer block">
+                    <div class="relative overflow-hidden rounded-lg aspect-square mb-4">
+                        <img alt="Fencing"
+                            class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd1UiHmKDQew6sBqgscNAa8Y0JwzoLgbne7oSQHxuYTLzPWBFXz5SDiQW7umOumLyPtcph-TFp9RxtFqbzs-KIWMA_NOfqlelIwnTtIzxbybVhnpJ9bfx1sqj2VUgQPIyLJKm835zGeRKv1j2KgpKtKKKcE3mGOpO1CNqyxmLLAfOsiJP8FPlRAXu27x0w_GCoGSCkX-oI3a_cvXSKrb2MW4Ks1sI8ZqX8ASbP9qb93lC1wvd-X1t9cdknaCWRxEajeRIXe6uk4Gcg" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <h3 class="text-center font-semibold text-lg group-hover:text-primary transition-colors">Fencing
+                        &amp; Decking</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Timber -->
+    <div class="py-16 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-gray-900 dark:text-white mb-2">Popular Timber</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Available for immediate bulk dispatch.</p>
+                </div>
+                <a class="text-primary font-medium hover:underline flex items-center" href="catalog.html">
+                    View All Products <span class="material-icons text-sm ml-1">arrow_forward</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative h-64">
+                        <img alt="Mahogany Plank" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyk9esOfeAnaFR0DA-ZA4Q6D9wPIJceFd7EETHWpXZjx_VqWsDysTwr2XoE7NGkCSlTY1O3aIWcPev7IpbwYCEDoM3W9XmfxMM98GjrQKXYLicLg-0uuYDzJY_S0qk_CGD9pUZK-d59c6NPjNBPEl_60B12KimzpzbDt6CRKOAch1CBap4Zj__yJKTIasknSLZ9dmYM_tyzMumC1HJNTZ1P4qCfi16c5N6MyLAdVGnXXTa6RkM5__J_fy1tjzbhRBspXoMTTTFYF1j" />
+                        <span
+                            class="absolute top-4 left-4 bg-secondary text-primary-dark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Premium</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">C16 Treated
+                            Structural</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">47mm x 100mm (2" x 4")</p>
+                        <div class="flex justify-between items-center">
+                            <span class="block text-2xl font-bold text-primary">₹850 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ length</span></span>
+                            <button data-product-id="C16-TR-011"
+                                class="bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative h-64">
+                        <img alt="Balsa Wood" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm8k9q36PNvfn0-f8WECCvH6iLdHfx_sNRGksCeV5rLaoUkMr8MWppec-ncay03IIv_MRz4LkYpWCJ2CGGKWgs-3M5tXIEWFR8_6GQ3H9Ew4bdvSvmQPEAcnoPcFhAFRUyfP40O3KemmnMngA6kL_qdh1gTFPQPNZnqGQzm0Vo0R5roIpbKe9q3xTO2q0lyH5A6roSByUNNpR8wE5ieRFK0WTo6lqfjBP1fv1CtJnWqJDMaGPHaOTyUvA1-VjguRT2X-G3cAIBYhYa" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Hardwood Plywood
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">18mm x 1220mm x 2440mm</p>
+                        <div class="flex justify-between items-center">
+                            <span class="block text-2xl font-bold text-primary">₹3,200 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ sheet</span></span>
+                            <button data-product-id="PLY-HW-012"
+                                class="bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-800">
+                    <div class="relative h-64">
+                        <img alt="OSB Board" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw8BaOWFjzDC0SqRhypX82UwsMlUcz3bsZwmJjosj-xCR81a-F3PcrPLpAapoQ5VieZ2sBK1_Ty6vTwCRhDVDE78iiUhE3xfTRahmeWZkNBKyENw7wKiu11wR-6JreALL998Elhc_XLcWsFYq0I5t7G_O3bMZhKn108pOmSvuCHhb_L6DdppmmG2gdjrLQUmhQ00Sed1AVonRUSOl6rVikaY6fOXMJCaFhfi9JDWVfLbPc2IdKZnCKNOma0HIeIGe_yXFn9S-pjOz9" />
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">OSB 3 Board
+                            T&amp;G</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">18mm x 1220mm x 2440mm</p>
+                        <div class="flex justify-between items-center">
+                            <span class="block text-2xl font-bold text-primary">₹1,450 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ sheet</span></span>
+                            <button data-product-id="OSB-3B-013"
+                                class="bg-gray-100 dark:bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trade & Bulk Quote Section -->
+    <div class="py-20 bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <span class="text-accent-brown font-bold tracking-widest uppercase text-sm mb-2 block">Trade &amp;
+                        Bulk</span>
+                    <h2 class="font-display text-4xl font-bold text-gray-900 dark:text-white mb-6">Large Project?
+                        <br />Get a Custom Quote.
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        Whether you are a commercial contractor or planning a large garden office build, Woodex offers
+                        specialized pricing for bulk orders. Tell us what you need, and we'll calculate the logistics
+                        and best possible price.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <span
+                                    class="flex items-center justify-center h-12 w-12 rounded-full bg-secondary/20 text-accent-brown">
+                                    <span class="material-icons">local_shipping</span>
+                                </span>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900 dark:text-white">Nationwide Delivery</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">From our yard to your site,
+                                    anywhere in the country.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <span
+                                    class="flex items-center justify-center h-12 w-12 rounded-full bg-secondary/20 text-accent-brown">
+                                    <span class="material-icons">verified</span>
+                                </span>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-900 dark:text-white">Quality Guarantee</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">C16/C24 Graded timber and
+                                    responsibly sourced hardwoods.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10 rounded-xl overflow-hidden shadow-lg relative">
+                        <img alt="Garden Office Studio" class="w-full h-64 object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFdQ4qwzrRMKuftehNL_X2maoFmpa5uEtso1e1pYikDe-oBk4vNnDSTsiIl3B8SqYZs46AkYNa2xg3P4Wexk5FDvY5aCxM92bBvdvSpaOmjr5eInjZqemQHaEVNM5pD7ttoIjhFIzNzJbQqKy7UYJz8JtC0iL-f73AkbkEJsXPOgAZ_IqNJ167Ugoe-qkk5eomR-YLs6E6KPolJOLnA13K-6eo-wfNATGgeSJr1kD6d6-hdkuJ2bLQRBo7kLsZhBvw9-AlgZCz05Bz" />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white font-medium">Planning a Garden Office?</p>
+                            <p class="text-gray-300 text-sm">We supply complete timber kits.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bulk Inquiry Form -->
+                <div
+                    class="bg-background-light dark:bg-background-dark p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                    <form class="space-y-6" onsubmit="handleFormSubmit(event, 'bulk')">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                    for="bulk-first-name">First Name</label>
+                                <input
+                                    class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                    id="bulk-first-name" placeholder="Jane" type="text" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                    for="bulk-last-name">Last Name</label>
+                                <input
+                                    class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                    id="bulk-last-name" placeholder="Doe" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="bulk-email">Email Address</label>
+                            <input
+                                class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                id="bulk-email" placeholder="jane@company.com" type="email" />
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                    for="timber-type">Timber Type</label>
+                                <select
+                                    class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                    id="timber-type">
+                                    <option>Select Wood Type...</option>
+                                    <option>C16 Structural</option>
+                                    <option>Oak Hardwood</option>
+                                    <option>Meranti</option>
+                                    <option>OSB / Plywood</option>
+                                    <option>Decking Boards</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                    for="quantity">Est. Quantity / Volume</label>
+                                <input
+                                    class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                    id="quantity" placeholder="e.g. 500 meters or 50 sheets" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="dimensions">Required Dimensions</label>
+                            <input
+                                class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                id="dimensions" placeholder="e.g. 47x100mm @ 4.8m lengths" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="bulk-message">Project Details</label>
+                            <textarea
+                                class="w-full bg-white dark:bg-surface-dark border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary focus:border-primary dark:text-white p-3"
+                                id="bulk-message" placeholder="Tell us more about your project requirements..."
+                                rows="4"></textarea>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input class="focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded"
+                                    id="bulk-newsletter" type="checkbox" />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label class="font-medium text-gray-700 dark:text-gray-300" for="bulk-newsletter">Sign
+                                    up for trade price updates</label>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                            type="submit">
+                            Request Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark dark:bg-black text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <a href="index.html"
+                        class="font-display font-bold text-3xl tracking-wide mb-4 block hover:text-secondary transition-colors">WOODEX</a>
+                    <p class="text-white/80 text-sm leading-relaxed mb-6">
+                        Premium timber merchants serving the industry since 1995. Quality wood, sustainable sourcing,
+                        and expert advice for every project.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="text-white hover:text-secondary transition-colors" href="#"><span
+                                class="material-icons">facebook</span></a>
+                        <a class="text-white hover:text-secondary transition-colors" href="#"><span
+                                class="material-icons">camera_alt</span></a>
+                        <a class="text-white hover:text-secondary transition-colors" href="#"><span
+                                class="material-icons">alternate_email</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Customer Service</h4>
+                    <ul class="space-y-2 text-sm text-white/80">
+                        <li><a class="hover:text-white transition-colors" href="#">Delivery Information</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Returns Policy</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Trade Accounts</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">FSC Certification</a></li>
+                        <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact Woodex</h4>
+                    <ul class="space-y-4 text-sm text-white/80">
+                        <li class="flex items-start">
+                            <span class="material-icons text-secondary mr-2 text-sm pt-1">location_on</span>
+                            <span>Woodex Timber Merchants<br />Main Road, Tanur<br />Malappuram, Kerala</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="material-icons text-secondary mr-2 text-sm">phone</span>
+                            <span>+91 08761 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="material-icons text-secondary mr-2 text-sm">email</span>
+                            <span>info@woodex.in</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/60">
+                <p>© 2023 Woodex Timber Merchants. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0 items-center">
+                    <span class="material-icons text-2xl">forest</span>
+                    <span>Eco-friendly Sourcing</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top">
+        <span class="material-icons">arrow_upward</span>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Timber Catalog - Woodex Premium Timber</title>
+    <meta name="description"
+        content="Browse our curated selection of premium timber. From exotic hardwoods to structural timber, find the perfect wood for your project." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7C5A34",
+                        secondary: "#D4AC6E",
+                        "primary-dark": "#4A2C1D",
+                        "accent-light": "#EAE5DE",
+                        "background-light": "#F9F8F6",
+                        "background-dark": "#1F1611",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#2C2018",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { DEFAULT: "0.25rem" },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-body transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav id="main-nav"
+        class="sticky top-0 z-50 bg-surface-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a class="flex items-center gap-2" href="index.html">
+                        <span class="material-icons text-primary text-4xl">forest</span>
+                        <span
+                            class="font-display text-2xl font-bold tracking-tight text-primary-dark dark:text-secondary">WOODEX</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="index.html">Home</a>
+                    <a class="nav-link active text-primary dark:text-secondary font-medium transition"
+                        href="catalog.html">Timber Store</a>
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="order.html">Bulk Inquiry</a>
+                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                        href="contact.html">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden sm:block">
+                        <input
+                            class="bg-background-light dark:bg-background-dark border border-primary/30 dark:border-secondary/30 rounded-full py-1.5 px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:focus:ring-secondary w-48 transition-all dark:text-white"
+                            placeholder="Search timber..." type="text" />
+                        <span class="material-icons absolute right-3 top-1.5 text-gray-400 text-sm">search</span>
+                    </div>
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative"
+                        id="cart-btn">
+                        <span class="material-icons text-primary dark:text-secondary">shopping_cart</span>
+                        <span
+                            class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center cart-count">2</span>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        id="theme-toggle" onclick="toggleDarkMode()">
+                        <span class="material-icons text-primary dark:text-secondary">dark_mode</span>
+                    </button>
+                    <button
+                        class="md:hidden p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        onclick="toggleMobileMenu()">
+                        <span class="material-icons">menu</span>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="index.html">Home</a>
+                    <a class="text-primary dark:text-secondary font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="catalog.html">Timber Store</a>
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="order.html">Bulk Inquiry</a>
+                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="relative h-[500px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Rich dark wood texture background" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIYG9DlmKIseONbjLp0rnxjbKfSVAXQfwNeDs65A6I-Xa-F9nIJ3FQrg8_DUYCy7TJzikGZCjAVEeGkFiGYzVr3twV3roeZmuqdnI0Hp7w534LVFCGyIquuTL43uMXcdjLz8GdklZxK8GlJMwiruvXkkecbO9jCsR3veFINzaxUr-F2KLqlfDMtfvaqVDEMlyub8x-uhbeF9t3wg6PHk1ueLUNNbq95ArhXVBnZxbtcQf3u15z5u7kmHJEjzi47Umdtvfc6BqrStjf" />
+            <div class="absolute inset-0 bg-black/60 dark:bg-black/70"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fadeInUp">
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                Crafted by Nature, <br /> <span class="text-secondary italic">Perfected by Woodex</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 font-light max-w-2xl mx-auto">
+                Source the world's finest premium timber delivered directly to your workshop. From rare ebony to
+                sustainable teak.
+            </p>
+            <a class="bg-primary hover:bg-secondary text-white font-medium py-3 px-8 rounded shadow-lg transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2"
+                href="#catalog">
+                Explore Collection
+                <span class="material-icons text-sm">arrow_downward</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Our Expertise -->
+    <section class="py-16 bg-white dark:bg-surface-dark transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl text-primary-dark dark:text-white mb-3">Our Expertise</h2>
+                <div class="h-1 w-20 bg-primary dark:bg-secondary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 shadow-lg">
+                        <img alt="Hardwood Planks"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1Oxo6BoQ7uf4D4OSgzZ1t6XgdkQ3YTe98TWK4TvPUDKBHUTDD-5J1jSFJIrNuBY7qdgF5t8mGPsGS__LDxRpStfJ9i-iUq49lRFPFMfGGqvzA1UVg3pj8Rih9SMQPTSv-6knxtWvTGXtHYM3DETCO4u92oN2ts8INk44niWuUEm2YxItkBNbmGnw4N6eOk7W2jECTNR91lroXVBb9VjMyYySwbNgPnW2T3kp0pK0grmm8CGKbDg6FN-0UUQI67iNAg89ozbHQEIqv" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-white font-display text-xl font-semibold">Structural Timber</h3>
+                            <p class="text-secondary text-sm">Oak, Pine, Ash</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 shadow-lg">
+                        <img alt="Exotic Wood"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5AtlvhyGmwQUUD0nCejdPYa8ZR32jJo6f9dXbyGgwZZbHU8D55esbyfOYAcs-Qe1-epv6BAFysysU4rj31OYolheGY1-MovQ190f3dIWJJ4bQZjFKnaa5C1ACVnNj3XjnL4o2W10ReRoHs1_M02v8FDv8dT3M4pnU9DVYP_eG27Oy9Ah4WcmP5F_t0XCcXWwLoTcZ_-wM3VolxzUAZ9qMt0T4AHxULpy7-hMN238XbfXuFNxefy6KcqscJIHCRe3iyRpbsRnA_ANv" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-white font-display text-xl font-semibold">Exotic Hardwoods</h3>
+                            <p class="text-secondary text-sm">Mahogany, Rosewood</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 shadow-lg">
+                        <img alt="Decking"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_TWuKSxG9VmLw3ds-lJG6hbdmD8qTrMkOKHZDE3nymDXOro1490MdlvB_gjzpFDZn4f7hWP7kmFZa95jmzsLnPGZH8NOmgYyhzlNLFC3hRVum9e1YNuXM7D0706BJhgnlr-uJIV_KFaunKqDDw6hqDP88S9r0H4o0uCBF75NO_G1EGIIms0-nFqj9zqMvhR0muQzLLg8N6mPq6XPY3w1ZGwDrafYt1oXfRguI5s5ooTSQGZO-jUuGin4D7sncS2cbQD-GaqZQUUJ0" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-white font-display text-xl font-semibold">Outdoor Decking</h3>
+                            <p class="text-secondary text-sm">Teak, Ipe, Cedar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg aspect-[4/3] mb-4 shadow-lg">
+                        <img alt="Veneers"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEQiEY_PC0Rkkm1InsYCl2QARNA80sFQbZ2aiI4Y8qVVlD4E_2Gd1vuRfTA-Af8Qe2gqHKeRMUWVxrLaj635WS6AJcfR0NmZIKXweA-ueCx9sOrhPzqJ6QFg7wM_puUXm3d4Qr2E68cv9LAGWH1gBrDynhVFHgblPuIR2dQnQ5jNOzzRx7lBnJzhFpTebi5u7K5gk9Aa92vScVivGnO064E1huglwNR5Gi2Op8MUle2uVstGLWObbu2v2WrOC1kLWfyDiQ0fAlrWjv" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-white font-display text-xl font-semibold">Premium Veneers</h3>
+                            <p class="text-secondary text-sm">Walnut, Maple, Birch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Selection Catalog -->
+    <section class="py-16 bg-background-light dark:bg-background-dark transition-colors duration-300" id="catalog">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl text-primary-dark dark:text-white mb-2">Curated
+                        Selection</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Sustainably sourced premium cuts for discerning
+                        craftsmen.</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-4">
+                    <select
+                        class="bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-600 rounded px-4 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:text-gray-200">
+                        <option>Sort by Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product cards -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Honduran Mahogany texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHNvIZ2JzGASiSJ_g866jorkv2zVPvO7E-bBGb4HLecsSp8xBfw7Mvfk1sPnK-Wy1rdTn2Drs86mkuC3xUiycVs4Hc-s18tNurQbjVuSam52MtnThAGu24t4wsB9aeiPzaw7870M0lBtl4jdnCerZ5cF8EdEwGl1865BjRSJlaHQEpyqiGtHAopdWP1WGa78JfQPZacjrB0iWpPHE5GKo16KXugr9H6hwhhsXFrvnPOZmon0kE28kbcn3hiQt-UrXwYmKIH3wStr4_" />
+                        <div
+                            class="absolute top-3 right-3 bg-secondary text-primary-dark text-xs font-bold px-2 py-1 rounded">
+                            PREMIUM</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Honduran Mahogany
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Rich reddish-brown, excellent
+                            workability.</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹3,450 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="MHG-HN-005"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Burmese Teak texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqwas7TA537qU3B4QPodg003VY0UIPLeZOGh9wIZi8A-EilVLkfb3mHqxtdn2e0tPzGEPpn1y9fO_bFUwVs_hRVOrUlEn7qJhxlIOlXAUkM8eHtOLPwsrPchp9gO8k1ZUXZufnoTZTEqfQGxyRh1zD2I04tXwYP0KPs-srE_YitOPexrw_U1lluCK8tk2vizMkklmYc111BMyNdsNjY1Xf37jI3r3TsyuWiEDVllEbeLjR74Hj2SeDLqkqAoGruteQnRteLlb6ZBX0" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Burmese Teak</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Gold-brown, supreme weather resistance.
+                        </p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹4,800 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="TEK-BM-088"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Indian Rosewood texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAraYvi_ZXB74eiklGrInRQxhphMPWiCP467L6dglxaUgSOOToBfQiMeGSD1JthY4k3YalLDzDvlnGI87muzuIbmgKMBXCPFdioWqN3syGLmRSqaKdhhzkqc7qsyEjlKhGnykkIfbtGilgboqZ8dAlqzV8G6XT7v7c0zHNt7LW4g7FKZZsE_C1yERgoj0wfUAvvaLUXQmZjxwuFGkzyMcTgl_ejB09WYwuy9pC_zdMUtCr4G5hHB0N2MwmBVERdSMiTQ962ycfOVfAq" />
+                        <div class="absolute top-3 right-3 bg-red-800 text-white text-xs font-bold px-2 py-1 rounded">
+                            LOW STOCK</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Indian Rosewood
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Deep purplish-brown, distinct grain.
+                        </p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹5,200 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="RSW-IN-006"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="White Oak texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_h6KtUvrvPmLda0EPcFVf-50CvjKzMYwBV5VIlXMgiG_CDy0DYIZ3M7z3pr8GqBKDNY_RsXQFN8-J-PJnDusMkj9Uwm1y9AdrhLnvWDIZ1qBokihbDPSQG6g5GMbreYCqZWPdhNRffAJmvWKYsR7PKGZeN64qJ_RRLAM9bx2e2d9lqFWc8jdUueV6w9JJDdz3xli15OGZMXSt0Dgt9oXj5Zeu2-Bg4gDdblHldo99-oAm_ih31RdAuBzyUz4oSzYdEkKVtH6RmFWU" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">American White Oak
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Light brown, strong straight grain.</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹2,100 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="OAK-AM-007"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Gabon Ebony texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYyyQLhn8SPPCVl9J6exIlfY3wyyvVQWrHY1BG3ODGA24QOtLKzMM1PiZGjMKFb1ZbpmVKmaY2eKal6fkHm0UE1n16Vl3nvwWnvk8URHbtc4Gmrlv5BuwlVPuyRtnaHfuOOzw92R3Poi5oA4DQgu4UX8Y6Z8sOvTthFI1u6Hfo5Q0ilcC9GJu3Qui2TxYP8G-qZuahRqAJ7XKx5eV7WceZH4uiTS19Y-sV3tJKO6kbB1wBYkp-JD0m7yYB8d19qZn5-aApmFOiN7AG" />
+                        <div
+                            class="absolute top-3 right-3 bg-black/80 text-secondary border border-secondary text-xs font-bold px-2 py-1 rounded">
+                            LUXURY</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Gabon Ebony</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Jet black, incredibly dense &amp; fine.
+                        </p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹12,500 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="EBN-GB-008"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Balsa wood texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC-lI4kok3OXSZLOslF0rz92x__-lkKp4iPpZrtENCo7eWo141xVSQNv2gtZ6gzfL7-zDTZ8waUZisiL-GHAGxAJyY0rHpeg482-3AzA4DeCYZYvHfV-62d79Y_ukZzIhpWyc8QxhVyD0fbS2P8VpnecvOLANnqsOX_GLHC9I-QqriAcSd6OHecZEv_4n6iS6L9xAsMCpPEtM56P-A-b_PFcgeoyAQRIlmBTpPtyom6kjxL2ky2OcirK6vOvmrZyJYcp3Nh8DBUm6K" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Premium Balsa</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Pale white, extremely lightweight.</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹950 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="BLS-EC-042"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Black Walnut texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNk6qNyduhpat4xnjivMIVfyJFqX5ua_8H_59aNbe3l7Mi_jdoV7coJMatKyVCQEAwLSsuyzeavGR5h-SgdkiBHnJqx45rC4hgsw8hOXi1Rf6q5GQPs5PrDrtZK_0WOFKx-FX74_TMyIfYdp0yYUIonm4eacGOypzpZv3Uyqs33pZA4JvUzrVC4UPpRie5NJAIZRngulQ8HVlOd9ju9hg3chIN8nKWPvu9tfZSROlWXHmmhm9VQEla6NNVPy0EkLNzOaAf3DJFxRQD" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Black Walnut</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Rich dark brown, smooth finish.</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹4,100 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="WLN-BL-009"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-700">
+                    <div class="relative aspect-square overflow-hidden">
+                        <img alt="Canadian Maple texture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuACPrbjrWoLvbLxGWS7rE-OpEo75nm7lSZF5Wu2JoJ10Qob4I0urj1QOrWTOLzMsnDJ-kiNTmJgmhnS-ychP3lYiDKp9DTxQSUZWaMBkS6zdtH5RHbVaFQ2XHYs5RD8FwFcc4tO0rCCKyYJpQDJB8XRUen16WKX35GjdeiFCvlkmf7tnHhssgANJfQbrmMaxgR2slu7vIL3AU-7IH9yXN6u4Kq2PjFAiCIHqDoN9AtWoAOb3OFJsSGcgNYNWOzmy7nqTQT8fnVSF_b8" />
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-bold text-gray-900 dark:text-white mb-1">Canadian Maple
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Creamy white, uniform texture.</p>
+                        <div
+                            class="flex items-center justify-between border-t border-gray-100 dark:border-gray-600 pt-3">
+                            <span class="font-bold text-primary dark:text-secondary">₹2,800 <span
+                                    class="text-xs font-normal text-gray-500 dark:text-gray-400">/ cu.ft</span></span>
+                            <button data-product-id="MPL-CN-010"
+                                class="text-primary dark:text-secondary hover:text-gray-700 dark:hover:text-white transition-colors">
+                                <span class="material-icons">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <a class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-primary/20 text-gray-600 dark:text-gray-300"
+                        href="#">
+                        <span class="material-icons text-sm">chevron_left</span>
+                    </a>
+                    <a class="px-4 py-2 bg-primary text-white rounded font-medium" href="#">1</a>
+                    <a class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-primary/20 text-gray-600 dark:text-gray-300"
+                        href="#">2</a>
+                    <a class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-primary/20 text-gray-600 dark:text-gray-300"
+                        href="#">3</a>
+                    <a class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-primary/20 text-gray-600 dark:text-gray-300"
+                        href="#">
+                        <span class="material-icons text-sm">chevron_right</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bespoke Section -->
+    <section class="py-20 bg-white dark:bg-surface-dark transition-colors duration-300 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <img alt="Bespoke Garden Office" class="rounded-xl shadow-2xl w-full object-cover h-[500px]"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhpFizgHBkw-FwoHbxC4nj9IJZ3L0c1-oezKFn_MhMc7hLirsy5DhtaxZmreYkHV8kojs7wD_J4BUX99dTaAcNL6EPXpWxtT98Eu5W248vIw2E5RAXCqHtRZFFsR5BvKCOialqkCSF2A885aHklmbXdB9CG5tZQfWo96eYuCYp6khUxH0AKDPklNvpsocG7BirqTz5ZpPw0UN7Yj3nAHAEzdKUQO9bwnqMrraCEhdBnE9ysOY9qwuGwYhwFLbCMn-syNZdrfxyuckZ" />
+                </div>
+                <div class="w-full md:w-1/2 text-left">
+                    <span
+                        class="text-primary dark:text-secondary font-bold tracking-widest text-sm uppercase mb-2 block">Custom
+                        Solutions</span>
+                    <h2
+                        class="font-display text-4xl md:text-5xl font-bold text-primary-dark dark:text-white mb-6 leading-tight">
+                        Bespoke Garden Studios &amp; Timber Rooms
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+                        Beyond raw materials, Woodex crafts exquisite architectural spaces. Whether you need a secluded
+                        home office, an artist's studio, or a leisure room, our master carpenters bring your vision to
+                        life using our premium stock.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center text-gray-700 dark:text-gray-200">
+                            <span class="material-icons text-primary dark:text-secondary mr-3">check_circle</span>
+                            Fully Insulated for Year-Round Use
+                        </li>
+                        <li class="flex items-center text-gray-700 dark:text-gray-200">
+                            <span class="material-icons text-primary dark:text-secondary mr-3">check_circle</span>
+                            Sustainably Sourced Timber Cladding
+                        </li>
+                        <li class="flex items-center text-gray-700 dark:text-gray-200">
+                            <span class="material-icons text-primary dark:text-secondary mr-3">check_circle</span>
+                            10-Year Structural Guarantee
+                        </li>
+                    </ul>
+                    <a class="bg-primary hover:bg-secondary text-white font-medium py-3 px-8 rounded inline-block transition-colors shadow-lg"
+                        href="contact.html">
+                        Request a Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/10 dark:bg-secondary/10 rounded-full blur-3xl z-0">
+        </div>
+    </section>
+
+    <!-- Inquiry Form -->
+    <section
+        class="py-16 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <div
+                class="bg-surface-light dark:bg-surface-dark p-8 md:p-12 rounded-xl shadow-lg border-l-4 border-primary">
+                <div class="text-center mb-8">
+                    <h2 class="font-display text-3xl font-bold text-primary-dark dark:text-white">Have a specific
+                        project?</h2>
+                    <p class="text-gray-500 dark:text-gray-400 mt-2">Get in touch with our timber experts for a custom
+                        quote.</p>
+                </div>
+                <form class="space-y-6" onsubmit="handleFormSubmit(event, 'catalog')">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First
+                                Name</label>
+                            <input
+                                class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white"
+                                type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last
+                                Name</label>
+                            <input
+                                class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white"
+                                type="text" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email
+                            Address</label>
+                        <input
+                            class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white"
+                            type="email" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                        <textarea
+                            class="w-full bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-600 rounded px-4 py-2 focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white"
+                            rows="4"></textarea>
+                    </div>
+                    <div class="flex items-center">
+                        <input class="h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary"
+                            id="catalog-newsletter" type="checkbox" />
+                        <label class="ml-2 block text-sm text-gray-600 dark:text-gray-400" for="catalog-newsletter">
+                            Add me to your mailing list for exclusive offers.
+                        </label>
+                    </div>
+                    <button
+                        class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 px-4 rounded transition-colors shadow-md"
+                        type="submit">
+                        Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark text-white pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-icons text-secondary text-3xl">forest</span>
+                        <span class="font-display font-bold text-2xl tracking-wider">WOODEX</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Premium timber merchants supplying the finest wood to craftsmen, builders, and hobbyists
+                        worldwide.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a class="text-gray-400 hover:text-secondary transition-colors" href="#"><span
+                                class="material-icons">facebook</span></a>
+                        <a class="text-gray-400 hover:text-secondary transition-colors" href="#"><span
+                                class="material-icons">photo_camera</span></a>
+                        <a class="text-gray-400 hover:text-secondary transition-colors" href="#"><span
+                                class="material-icons">alternate_email</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-secondary font-bold mb-4 uppercase text-sm tracking-wider">Shop</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a class="hover:text-white transition-colors" href="catalog.html">Hardwoods</a></li>
+                        <li><a class="hover:text-white transition-colors" href="catalog.html">Softwoods</a></li>
+                        <li><a class="hover:text-white transition-colors" href="catalog.html">Sheet Materials</a></li>
+                        <li><a class="hover:text-white transition-colors" href="catalog.html">Decking</a></li>
+                        <li><a class="hover:text-white transition-colors" href="catalog.html">Cladding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-secondary font-bold mb-4 uppercase text-sm tracking-wider">Contact Us</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <span class="material-icons text-secondary text-sm mr-2 mt-0.5">location_on</span>
+                            <span>Woodex Timber Merchants<br />Main Road, Tanur<br />Malappuram, Kerala</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="material-icons text-secondary text-sm mr-2">phone</span>
+                            <span>+91 08761 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="material-icons text-secondary text-sm mr-2">email</span>
+                            <span>info@woodex.in</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-secondary font-bold mb-4 uppercase text-sm tracking-wider">Certifications</h4>
+                    <div class="flex items-center gap-4">
+                        <div class="border border-gray-600 p-2 rounded text-center w-16">
+                            <span class="material-icons text-3xl text-gray-400">park</span>
+                            <span class="block text-[10px] text-gray-400">FSC</span>
+                        </div>
+                        <div class="border border-gray-600 p-2 rounded text-center w-16">
+                            <span class="material-icons text-3xl text-gray-400">recycling</span>
+                            <span class="block text-[10px] text-gray-400">PEFC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>© 2023 Woodex Timber Merchants. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a class="hover:text-gray-300" href="#">Privacy Policy</a>
+                    <a class="hover:text-gray-300" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="back-to-top">
+        <span class="material-icons">arrow_upward</span>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
