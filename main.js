@@ -307,21 +307,21 @@ function toggleMobileMenu() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        link.classList.remove('active', 'text-primary', 'dark:text-secondary');
+        link.classList.remove('active', 'text-primary', 'dark:text-secondary', 'dark:text-primary');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active', 'text-primary', 'dark:text-secondary');
+            link.classList.add('active', 'text-primary', 'dark:text-primary');
         } else {
-            link.classList.add('text-gray-600', 'dark:text-gray-300');
+            link.classList.add('text-gray-600', 'dark:text-gray-600');
         }
     });
     const mobileLinks = document.querySelectorAll('#mobile-menu a');
     mobileLinks.forEach(link => {
         const href = link.getAttribute('href');
-        link.classList.remove('text-primary', 'dark:text-secondary');
+        link.classList.remove('text-primary', 'dark:text-secondary', 'dark:text-primary');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('text-primary', 'dark:text-secondary');
+            link.classList.add('text-primary', 'dark:text-primary');
         } else {
-            link.classList.add('text-gray-600', 'dark:text-gray-300');
+            link.classList.add('text-gray-600', 'dark:text-gray-600');
         }
     });
 })();

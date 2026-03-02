@@ -46,59 +46,57 @@
 
     <!-- Navigation -->
     <nav id="main-nav"
-        class="sticky top-0 z-50 bg-surface-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        class="sticky top-0 z-50 bg-surface-light/95 dark:bg-surface-light/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <a class="flex items-center gap-2" href="index.html">
-                        <span class="material-icons text-primary text-4xl">forest</span>
-                        <span
-                            class="font-display text-2xl font-bold tracking-tight text-primary-dark dark:text-secondary">WOODEX</span>
+                    <a class="flex items-center" href="index.html">
+                        <img src="assets/woodex-logo.svg" alt="Woodex Logo" class="h-12 w-auto">
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                    <a class="nav-link text-gray-600 dark:text-gray-600 hover:text-primary dark:hover:text-primary font-medium transition"
                         href="index.html">Home</a>
-                    <a class="nav-link active text-primary dark:text-secondary font-medium transition"
+                    <a class="nav-link active text-primary dark:text-primary font-medium transition"
                         href="catalog.html">Timber Store</a>
-                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                    <a class="nav-link text-gray-600 dark:text-gray-600 hover:text-primary dark:hover:text-primary font-medium transition"
                         href="order.html">Bulk Inquiry</a>
-                    <a class="nav-link text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-secondary font-medium transition"
+                    <a class="nav-link text-gray-600 dark:text-gray-600 hover:text-primary dark:hover:text-primary font-medium transition"
                         href="contact.html">Contact</a>
                 </div>
                 <div class="flex items-center space-x-4">
                     <div class="relative hidden sm:block">
                         <input
-                            class="bg-background-light dark:bg-background-dark border border-primary/30 dark:border-secondary/30 rounded-full py-1.5 px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:focus:ring-secondary w-48 transition-all dark:text-white"
+                            class="bg-background-light dark:bg-gray-50 border border-primary/30 dark:border-primary/30 rounded-full py-1.5 px-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary dark:focus:ring-primary w-48 transition-all dark:text-gray-800"
                             placeholder="Search timber..." type="text" />
                         <span class="material-icons absolute right-3 top-1.5 text-gray-400 text-sm">search</span>
                     </div>
-                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative"
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-100 transition-colors relative"
                         id="cart-btn">
-                        <span class="material-icons text-primary dark:text-secondary">shopping_cart</span>
+                        <span class="material-icons text-primary dark:text-primary">shopping_cart</span>
                         <span
                             class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center cart-count">2</span>
                     </button>
-                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-100 transition-colors"
                         id="theme-toggle" onclick="toggleDarkMode()">
-                        <span class="material-icons text-primary dark:text-secondary">dark_mode</span>
+                        <span class="material-icons text-primary dark:text-gray-500">dark_mode</span>
                     </button>
                     <button
-                        class="md:hidden p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                        class="md:hidden p-2 rounded-full text-gray-500 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-100 transition"
                         onclick="toggleMobileMenu()">
                         <span class="material-icons">menu</span>
                     </button>
                 </div>
             </div>
-            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-200 dark:border-gray-700">
+            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-gray-200 dark:border-gray-200">
                 <div class="flex flex-col space-y-3 pt-4">
-                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                    <a class="text-gray-600 dark:text-gray-600 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-100 transition"
                         href="index.html">Home</a>
-                    <a class="text-primary dark:text-secondary font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                    <a class="text-primary dark:text-primary font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-100 transition"
                         href="catalog.html">Timber Store</a>
-                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                    <a class="text-gray-600 dark:text-gray-600 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-100 transition"
                         href="order.html">Bulk Inquiry</a>
-                    <a class="text-gray-600 dark:text-gray-300 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                    <a class="text-gray-600 dark:text-gray-600 font-medium px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-100 transition"
                         href="contact.html">Contact</a>
                 </div>
             </div>
@@ -472,8 +470,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div class="col-span-1">
                     <div class="flex items-center gap-2 mb-4">
-                        <span class="material-icons text-secondary text-3xl">forest</span>
-                        <span class="font-display font-bold text-2xl tracking-wider">WOODEX</span>
+                        <img src="assets/Gemini_Generated_Image_9yk1p99yk1p99yk1-removebg-preview.png" alt="Woodex Logo"
+                            class="h-10 w-auto">
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Premium timber merchants supplying the finest wood to craftsmen, builders, and hobbyists
