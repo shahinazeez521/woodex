@@ -236,11 +236,6 @@ const CartManager = {
         const cart = this.getCart();
         if (cart.length === 0) return '';
 
-        const { subtotal } = this.getTotal();
-        const handling = 2500;
-        const tax = Math.round(subtotal * 0.18);
-        const total = subtotal + handling + tax;
-
         let msg = `🪵 *WOODEX - New Order*\n\n`;
         msg += `👤 *Customer:* ${customerName}\n`;
         msg += `📅 *Date:* ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}\n\n`;
@@ -253,19 +248,12 @@ const CartManager = {
                 msg += `${i + 1}. *${product.name}*\n`;
                 msg += `   ${product.description}\n`;
                 msg += `   Ref: #${product.id}\n`;
-                msg += `   Qty: ${item.qty} ${product.unit} × ₹${product.price.toLocaleString('en-IN')}\n`;
-                msg += `   Subtotal: ₹${(product.price * item.qty).toLocaleString('en-IN')}\n\n`;
+                msg += `   Qty: ${item.qty} ${product.unit}\n\n`;
             }
         });
 
         msg += `─────────────────\n`;
-        msg += `💰 *Subtotal:* ₹${subtotal.toLocaleString('en-IN')}\n`;
-        msg += `📦 *Processing:* ₹${handling.toLocaleString('en-IN')}\n`;
-        msg += `📊 *Tax (18%):* ₹${tax.toLocaleString('en-IN')}\n`;
-        msg += `🚚 *Shipping:* Free\n`;
-        msg += `─────────────────\n`;
-        msg += `🧾 *TOTAL: ₹${total.toLocaleString('en-IN')}*\n\n`;
-        msg += `Please confirm this order. Thank you! 🙏`;
+        msg += `Please share the pricing details for this order. Thank you! 🙏`;
 
         return msg;
     },
@@ -503,8 +491,7 @@ function renderCartPage() {
                         </div>
                     </div>
                     <div class="text-right">
-                        <p class="text-gray-500 text-xs">Price per unit: ₹ ${product.price.toLocaleString('en-IN')}</p>
-                        <p class="text-2xl font-bold text-white mt-0.5">₹ ${lineTotal.toLocaleString('en-IN')}</p>
+                        <p class="text-secondary text-sm italic">Pricing discussed on WhatsApp</p>
                     </div>
                 </div>
             </div>
@@ -514,17 +501,12 @@ function renderCartPage() {
     cartItemsEl.innerHTML = itemsHTML;
 
     // Update summary
-    const { subtotal } = CartManager.getTotal();
-    const handling = 2500;
-    const tax = Math.round(subtotal * 0.18);
-    const total = subtotal + handling + tax;
-
-    document.getElementById('cart-count-text').textContent = `You have ${cart.length} item${cart.length > 1 ? 's' : ''} in your cart ready for checkout.`;
-    document.getElementById('summary-subtotal-label').textContent = `Subtotal (${totalUnits} ${totalUnits === 1 ? 'unit' : 'units'})`;
-    document.getElementById('summary-subtotal').textContent = `₹ ${subtotal.toLocaleString('en-IN')}`;
-    document.getElementById('summary-handling').textContent = `₹ ${handling.toLocaleString('en-IN')}`;
-    document.getElementById('summary-tax').textContent = `₹ ${tax.toLocaleString('en-IN')}`;
-    document.getElementById('summary-total').textContent = `₹ ${total.toLocaleString('en-IN')}`;
+    document.getElementById('cart-count-text').textContent = `You have ${cart.length} item${cart.length > 1 ? 's' : ''} in your cart.`;
+    document.getElementById('summary-subtotal-label').textContent = `Total Items`;
+    document.getElementById('summary-subtotal').textContent = `${totalUnits} unit${totalUnits > 1 ? 's' : ''}`;
+    document.getElementById('summary-handling').textContent = 'TBD';
+    document.getElementById('summary-tax').textContent = 'TBD';
+    document.getElementById('summary-total').textContent = 'Discussed on WhatsApp';
 }
 
 function changeQty(productId, delta) {
