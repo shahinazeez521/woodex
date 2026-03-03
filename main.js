@@ -44,13 +44,13 @@ const PRODUCTS = {
     },
     'MHG-HN-005': {
         id: 'MHG-HN-005',
-        name: 'Honduran Mahogany',
+        name: 'Ayini (Anjili) Wood',
         badge: 'Premium',
         badgeColor: 'bg-orange-500',
-        description: 'Rich reddish-brown, excellent workability',
+        description: 'Warm reddish-brown, durable & versatile',
         unit: 'cu. ft',
         price: 3450,
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAHNvIZ2JzGASiSJ_g866jorkv2zVPvO7E-bBGb4HLecsSp8xBfw7Mvfk1sPnK-Wy1rdTn2Drs86mkuC3xUiycVs4Hc-s18tNurQbjVuSam52MtnThAGu24t4wsB9aeiPzaw7870M0lBtl4jdnCerZ5cF8EdEwGl1865BjRSJlaHQEpyqiGtHAopdWP1WGa78JfQPZacjrB0iWpPHE5GKo16KXugr9H6hwhhsXFrvnPOZmon0kE28kbcn3hiQt-UrXwYmKIH3wStr4_'
+        image: 'assets/ayini.jpg'
     },
     'TEK-BM-088': {
         id: 'TEK-BM-088',
